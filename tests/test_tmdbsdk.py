@@ -29,7 +29,7 @@ def test_tv_info(tv_keys):
 def test_tv_popular(tv_keys):
   response = TV.popular()
 
-  assert isinstance(response, dict)
-  assert isinstance(response['results'], list)
-  assert isinstance(response['results'][0], dict)
-  assert set(tv_keys).issubset(response['results'][0].keys())
+  assert isinstance(response, list)
+  assert isinstance(response[0], dict)
+  assert set(tv_keys).issubset(response[0].keys())
+  assert len(response) == 100
